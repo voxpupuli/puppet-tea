@@ -1,0 +1,12 @@
+{
+  "name": "puppet-datatypes",
+  "version": "0.1.0",
+  "author": "voxpupuli",
+  "summary": "A collection of useful composite datatypes to use as validators",
+  "license": "Apache-2.0",
+  "source": "https://github.com/voxpupuli/puppet-datatypes",
+  "project_page": "https://github.com/voxpupuli/puppet-datatypes",
+  "issues_url": "https://github.com/voxpupuli/puppet-datatypes/issues",
+  "dependencies": [],
+  "operatingsystem_support": [ ]
+}
