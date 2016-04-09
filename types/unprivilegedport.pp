@@ -1,1 +1,1 @@
-type Unprivilegedport = Integer[1024, 65535]
+type Datatypes::Unprivilegedport = Integer[1024, 65535]

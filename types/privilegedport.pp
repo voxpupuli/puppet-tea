@@ -1,1 +1,1 @@
-type Privilegedport = Integer[1, 1023]
+type Datatypes::Privilegedport = Integer[1, 1023]

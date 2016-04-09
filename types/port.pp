@@ -1,1 +1,1 @@
-type Port = Integer[1, 65535]
+type Datatypes::Port = Integer[1, 65535]
