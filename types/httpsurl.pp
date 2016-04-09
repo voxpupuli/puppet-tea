@@ -1,1 +1,1 @@
-type Datatypes::HTTPSUrl = Regexp[/^https:\/\//]
+type Datatypes::HTTPSUrl = Pattern[/^https:\/\//]
