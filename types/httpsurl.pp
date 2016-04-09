@@ -1,0 +1,1 @@
+type HTTPSUrl = Regexp[/^https:\/\//]
