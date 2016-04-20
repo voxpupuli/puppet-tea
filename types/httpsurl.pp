@@ -1,1 +1,1 @@
-type Datatypes::HTTPSUrl = Pattern[/^https:\/\//]
+type Tea::HTTPSUrl = Pattern[/^https:\/\//]
