@@ -1,1 +1,1 @@
-type Datatypes::Privilegedport = Integer[1, 1023]
+type Tea::Privilegedport = Integer[1, 1023]

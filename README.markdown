@@ -8,6 +8,8 @@
 
 ## Overview
 
+:tea: Types: Abstracted & Extracted
+
 This module provides a set of Puppet 4.4+ compatible datatypes for use of validation in defined types and class declarations.
 
 ## Module Description
