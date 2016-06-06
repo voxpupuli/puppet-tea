@@ -14,15 +14,23 @@ This module provides a set of Puppet 4.4+ compatible datatypes for use of valida
 
 ## Module Description
 
-The basic idea behind this module is to retire [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)'s `validate_XYZ()` functions. Unlike `validate_()`, these datatypes can be verified by the compiler, instead of being run at application state.
+The basic idea behind this module is to retire [puppetlabs-stdlib](https://forge.puppet.com/puppetlabs/stdlib)'s `validate_XYZ()` functions. Unlike `validate_()`, these datatypes can be verified by the parser, instead of being validated during compilation.
 
-Installing this module will make it so that puppet [auto-loades](https://docs.puppet.com/puppet/4.4/reference/release_notes.html#type-aliases) all types defines in `types/`
+Installing this module will make it so that puppet [auto-loads](https://docs.puppet.com/puppet/4.4/reference/release_notes.html#type-aliases) all types defined in `types/`
 
 ## Reference
 
-* type Port = Integer[1, 65535]
-* type Unprivilegedport = Integer[1024, 65535]
-* type Privilegedport = Integer[1, 1023]
+### Network related types
+* type HTTPSUrl -- matches https URLs
+* type Port -- all valid TCP/UDP ports
+* type Privilegedport  -- ports which need rootly power to bind to
+* type Unprivilegedport  -- ports which do not need rootly power
+
+### Filesystem types
+* type UnixPath  -- paths on Unix-like operating systems
+
+### Other types
+* type EmailAddress -- somewhat naive email validator
 
 ## Limitations
 
