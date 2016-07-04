@@ -1,1 +1,1 @@
-type Tea::Port = Integer[1, 65535]
+type Tea::Port = Integer[0, 65535]
