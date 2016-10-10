@@ -1,63 +1,72 @@
-require 'rubygems'
-require 'bundler/setup'
-
 require 'puppetlabs_spec_helper/rake_tasks'
-require 'puppet/version'
-require 'puppet/vendor/semantic/lib/semantic' unless Puppet.version.to_f < 3.6
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
-require 'metadata-json-lint/rake_task'
-require 'rubocop/rake_task'
 
-# These gems aren't always present, for instance
+# These two gems aren't always present, for instance
 # on Travis with --without development
 begin
   require 'puppet_blacksmith/rake_tasks'
-rescue LoadError # rubocop:disable Lint/HandleExceptions
+  Blacksmith::RakeTask.new do |t|
+    t.tag_pattern = "v%s" # Use a custom pattern with git tag. %s is replaced with the version number.
+  end
+rescue LoadError
 end
-
-RuboCop::RakeTask.new
-
-exclude_paths = [
-  "bundle/**/*",
-  "pkg/**/*",
-  "vendor/**/*",
-  "spec/**/*",
-]
-
-# Coverage from puppetlabs-spec-helper requires rcov which
-# doesn't work in anything since 1.8.7
-Rake::Task[:coverage].clear
-
-Rake::Task[:lint].clear
 
 PuppetLint.configuration.relative = true
-PuppetLint.configuration.disable_80chars
-PuppetLint.configuration.disable_class_inherits_from_params_class
-PuppetLint.configuration.disable_class_parameter_defaults
+PuppetLint.configuration.send("disable_80chars")
+PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
 PuppetLint.configuration.fail_on_warnings = true
 
-PuppetLint::RakeTask.new :lint do |config|
-  config.ignore_paths = exclude_paths
-end
+# Forsake support for Puppet 2.6.2 for the benefit of cleaner code.
+# http://puppet-lint.com/checks/class_parameter_defaults/
+PuppetLint.configuration.send('disable_class_parameter_defaults')
+# http://puppet-lint.com/checks/class_inherits_from_params_class/
+PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 
+exclude_paths = [
+    "pkg/**/*",
+    "vendor/**/*",
+    "spec/**/*",
+]
+PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetSyntax.exclude_paths = exclude_paths
 
-desc "Run acceptance tests"
-RSpec::Core::RakeTask.new(:acceptance) do |t|
-  t.pattern = 'spec/acceptance'
-end
-
-desc "Populate CONTRIBUTORS file"
-task :contributors do
-  system("git log --format='%aN' | sort -u > CONTRIBUTORS")
+task :metadata do
+  sh "metadata-json-lint metadata.json"
 end
 
 desc "Run syntax, lint, and spec tests."
 task :test => [
-  :metadata_lint,
-  :syntax,
-  :lint,
-  :rubocop,
-  :spec,
-]
+         :syntax,
+         :lint,
+         :spec,
+         :metadata,
+     ]
+def io_popen(command)
+  IO.popen(command) do |io|
+    io.each do |line|
+      print line
+      yield line if block_given?
+    end
+  end
+end
+
+desc 'Vagrant VM power up and provision'
+task :vagrant_up, [:manifest, :hostname] do |t, args|
+  args.with_defaults(:manifest => 'init.pp', :hostname => '')
+  Rake::Task['spec_prep'].execute
+  ENV['VAGRANT_MANIFEST'] = args[:manifest]
+  provision = false
+  io_popen("vagrant up #{args[:hostname]}") do |line|
+    provision = true if line =~ /is already running./
+  end
+  io_popen("vagrant provision #{args[:hostname]}") if provision
+end
+
+# Cleanup vagrant environment
+desc 'Vagrant VM shutdown and fixtures cleanup'
+task :vagrant_destroy do
+  Rake::Task['spec_prep'].execute
+  `vagrant destroy -f`
+  Rake::Task['spec_clean'].execute
+end

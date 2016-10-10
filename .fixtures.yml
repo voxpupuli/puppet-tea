@@ -1,0 +1,9 @@
+fixtures:
+    symlinks:
+      tea:  "#{source_dir}"
+      test: "#{source_dir}/spec/fixtures/test"
+    repositories:
+      stdlib:
+        repo: https://github.com/puppetlabs/puppetlabs-stdlib.git
+        ref: 4.12.0
+    forge_modules:

@@ -1,14 +1,23 @@
 source "https://rubygems.org"
 
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.1.0'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f39830... add custom ruby version
 group :test do
+  gem "listen", "<=3.0.6"
   gem "rake"
   gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 4.0'
   gem "rspec"
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
+  gem "rspec-puppet-utils"
   gem "puppetlabs_spec_helper"
+  gem 'hiera-puppet-helper', :git => 'https://github.com/bobtfish/hiera-puppet-helper.git'
   gem "metadata-json-lint"
   gem "rspec-puppet-facts"
   gem 'rubocop', '~> 0.39'
+  gem 'rspec-puppet-facts'
 
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-leading_zero-check"
@@ -24,3 +33,4 @@ group :development do
   gem "puppet-blacksmith"
   gem "guard-rake"
 end
+
