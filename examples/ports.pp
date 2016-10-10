@@ -1,5 +1,6 @@
-
+# lint:ignore:autoloader_layout
 class tea::ports (
+# lint:endignore
   Tea::Port  $any_port =  5000,
   Tea::UnprivilegedPort $unp_port = 7000,
   Tea::PrivilegedPort $priv_port =  1000,
