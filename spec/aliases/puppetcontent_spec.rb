@@ -28,9 +28,9 @@ if Puppet.version.to_f >= 4.5
           "C:/whatever",
           "\\var\\tmp",
           "\\Users/hc/wksp/stdlib",
-          "*/Users//nope"
-          "/Users//nope"
-          "/Users/nope"
+          "*/Users//nope",
+          "/Users//nope",
+          "/Users/nope",
         ].each do |value|
           describe value.inspect do
             let(:params) {{ value: value }}
