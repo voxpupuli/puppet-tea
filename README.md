@@ -20,18 +20,24 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 
 ## Reference
 
-### Network related types
-* type HTTPUrl -- matches http/https URLs
-* type HTTPSUrl -- matches https URLs
-* type Port -- all valid TCP/UDP ports
-* type Privilegedport  -- ports which need rootly power to bind to
-* type Unprivilegedport  -- ports which do not need rootly power
+### public types
+* `Absolutepath`: matches http/https URLs
+* `HTTPUrl`: matches http/https URLs
+* `HTTPSUrl`: matches https URLs
+* `Port`: all valid TCP/UDP ports
+* `Privilegedport`:  ports which need rootly power to bind to
+* `Unprivilegedport`:  ports which do not need rootly power
+* `IPv4`: Matches valid IPv4 address
+* `IPv6`: Matches valid IPv6 address
+* `ipaddress`: Matches valid IPv4 or IPv6 address
+* `IPv4_cird`: Matches valid IPv4 address in CIDR notation
+* `IPv6_cidr`: Matches valid IPv6 address in CIDR notation
+* `Puppetsource`: matches values that can be used for a file type source parameter
+* `Puppetcontent`: matches values that can be used for a file type content parameter
 
-### Filesystem types
-* type UnixPath  -- paths on Unix-like operating systems
-
-### Other types
-* type EmailAddress -- somewhat naive email validator
+### private types
+* `fileuri`: Matches file:/// uris, used by Puppetsource
+* `puppeturi`: Matches puppet:/// uris, used by Puppetsource
 
 ## Limitations
 
