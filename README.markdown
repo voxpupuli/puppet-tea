@@ -21,6 +21,7 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 ## Reference
 
 ### Network related types
+
 * type HTTPUrl -- matches http/https URLs
 * type HTTPSUrl -- matches https URLs
 * type Port -- all valid TCP/UDP ports
@@ -28,10 +29,13 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 * type Unprivilegedport  -- ports which do not need rootly power
 
 ### Filesystem types
+
 * type UnixPath  -- paths on Unix-like operating systems
 
 ### Other types
+
 * type EmailAddress -- somewhat naive email validator
+* type Syslogpriority -- valid syslog priorities keywords: debug info notice warning err crit alert or emerg
 
 ## Limitations
 
