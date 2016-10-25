@@ -34,6 +34,7 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 
 ### Other types
 
+* type AWSRegion -- valid AWS region name (eg 'us-east-1')
 * type EmailAddress -- somewhat naive email validator
 * type Syslogpriority -- valid syslog priorities keywords: debug info notice warning err crit alert or emerg
 
