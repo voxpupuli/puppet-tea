@@ -36,7 +36,7 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 
 * type EmailAddress -- somewhat naive email validator
 * type Syslogfacility -- valid syslog facilities: see `man syslog(3)` for a complete list
-* type Syslogpriority -- valid syslog priorities keywords: debug info notice warning err crit alert or emerg
+* type Syslogpriority -- valid syslog priorities: see `man syslog(3)` for a complete list
 
 ## Limitations
 
