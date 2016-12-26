@@ -8,5 +8,11 @@
   "project_page": "https://github.com/voxpupuli/puppet-tea",
   "issues_url": "https://github.com/voxpupuli/puppet-tea/issues",
   "dependencies": [],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.4.0 < 5.0.0"
+    }
+  ],
   "operatingsystem_support": [ ]
 }
