@@ -1,5 +1,6 @@
 ---
 sudo: false
+dist: trusty
 language: ruby
 cache: bundler
 bundler_args: --without system_tests development
@@ -7,7 +8,7 @@ before_install:
   - bundle -v
   - rm Gemfile.lock || true
   - gem update --system
-  - gem install bundler -v '~>1.13.0'
+  - gem update bundler
   - gem --version
   - bundle -v
 script:
