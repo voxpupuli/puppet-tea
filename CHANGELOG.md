@@ -1,3 +1,25 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
+
+## [v1.0.0](https://github.com/voxpupuli/puppet-tea/tree/v1.0.0) (2017-11-17)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-tea/compare/v0.2.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Add 'alert' and 'crit' \(1 and 2\) severity \(rfc5424\) [\#32](https://github.com/voxpupuli/puppet-tea/pull/32) ([wyardley](https://github.com/wyardley))
+
+**Closed issues:**
+
+- Resource type not found: Tea::Unixpath [\#21](https://github.com/voxpupuli/puppet-tea/issues/21)
+
+**Merged pull requests:**
+
+- bump puppet version dependency to \>= 4.7.1 \< 6.0.0 [\#34](https://github.com/voxpupuli/puppet-tea/pull/34) ([bastelfreak](https://github.com/bastelfreak))
+
 # Change log
 
 All notable changes to this project will be documented in this file.
@@ -24,6 +46,7 @@ These should not impact the functionality of the module.
 - Update metadata.json [\#5](https://github.com/voxpupuli/puppet-tea/pull/5) ([ahpook](https://github.com/ahpook))
 - Update travis [\#4](https://github.com/voxpupuli/puppet-tea/pull/4) ([bastelfreak](https://github.com/bastelfreak))
 - rename: chose a shorter & snappier name [\#3](https://github.com/voxpupuli/puppet-tea/pull/3) ([igalic](https://github.com/igalic))
+
 
 
 
