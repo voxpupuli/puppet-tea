@@ -32,12 +32,30 @@ Installing this module will make it so that puppet [auto-loads](https://docs.pup
 
 * type UnixPath  -- paths on Unix-like operating systems
 
+### systemd types
+
++ Systemd::Time -- matches a systemd.time(7) time specification
++ Systemd::TimeSpan -- matches a systemd.time(7) timespan specification
+
 ### Other types
 
 * type AWSRegion -- valid AWS region name (eg 'us-east-1')
 * type EmailAddress -- somewhat naive email validator
 * type Syslogfacility -- valid syslog facilities: see `man syslog(3)` for a complete list
 * type Syslogpriority -- valid syslog priorities: see `man syslog(3)` for a complete list
++ type UUID -- matches UUIDs
+
+### Date/time types
+
++ type Weekday -- matches week days as strings (lowercase)
++ type Zone -- matches time zones available on a recent Ubuntu
+
+### UNIX-specific types
+
++ type User -- matches either `UserID` or `UserName`
++ type UserID -- matches UNIX numeric user-ids
++ type UserName -- matches UNIX user names (with the limitations that normally
+  apply)
 
 ## Limitations
 
