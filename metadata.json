@@ -1,6 +1,6 @@
 {
   "name": "puppet-tea",
-  "version": "1.0.2-rc0",
+  "version": "2.0.0",
   "author": "Vox Pupuli",
   "summary": "A collection of useful composite datatypes to use as validators",
   "license": "Apache-2.0",
